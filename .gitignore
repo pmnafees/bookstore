@@ -1,0 +1,38 @@
+# === Java / Maven ===
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+.mvn/timing.properties
+
+# === Logs ===
+*.log
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
+out/
+
+# === VS Code ===
+.vscode/
+
+# === Eclipse ===
+.project
+.classpath
+.settings/
+
+# === OS Specific ===
+.DS_Store
+Thumbs.db
+
+# === Environment Files ===
+.env
+*.env
+
+# === Node (in case you add frontend later) ===
+node_modules/
+
+# === Docker ===
+docker-compose.yml
+
+# === Misc ===
+*.swp
