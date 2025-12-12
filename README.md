@@ -1,4 +1,14 @@
-# Bookstore Backend
+# Bookstore API
+
+A basic Spring Boot REST API for managing books.
+
+### Features
+- CRUD operations for books
+- Request validation
+- Centralized exception handling
+- Swagger UI for API documentation
+- Dockerfile for containerizing the application
+- GitHub Actions workflow for build and test
 
 ## Project Overview
 A Spring Boot backend for managing books. 
