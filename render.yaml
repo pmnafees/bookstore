@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: bookstore-backend
+    runtime: docker
+    plan: free
+    repo: https://github.com/pmnafees/bookstore
+    branch: main
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
