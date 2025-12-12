@@ -1,11 +1,32 @@
 services:
   - type: web
-    name: bookstore-backend
-    runtime: docker
+    name: bookstore-service
+    env: java
     plan: free
-    repo: https://github.com/pmnafees/bookstore
-    branch: main
-    dockerfilePath: Dockerfile
+
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/bookstore-0.0.1-SNAPSHOT.jar"
+
     envVars:
-      - key: PORT
-        value: 8080
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: bookstore
+          property: connectionString
+
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: bookstore
+          property: user
+
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: bookstore
+          property: password
+
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+
+databases:
+  - name: bookstore
+    plan: free
+    databaseName: bookstore
