@@ -23,7 +23,7 @@ The backend is containerized with Docker and the built image is pushed to GitHub
 - PostgreSQL (runtime)
 - Docker
 - GitHub Actions (CI/CD)
-
+- Swagger UI 
 ## Running the Project
 
 ### Local Setup
