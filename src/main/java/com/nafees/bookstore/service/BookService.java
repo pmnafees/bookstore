@@ -1,25 +1,23 @@
 package com.nafees.bookstore.service;
 
-import com.nafees.bookstore.model.Book;
-import com.nafees.bookstore.repository.BookRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import com.nafees.bookstore.dto.BookRequestDTO;
+import com.nafees.bookstore.dto.BookResponseDTO;
+import com.nafees.bookstore.dto.PagedResponse;
+import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
-@Service
-@Transactional
-public class BookService {
-    private final BookRepository repo;
+public interface BookService {
 
-    public BookService(BookRepository repo){
-        this.repo = repo;
-    }
+    BookResponseDTO create(BookRequestDTO request);
 
-    public Book save(Book b){ return repo.save(b); }
-    public List<Book> listAll(){ return repo.findAll(); }
-    public Optional<Book> getById(Long id){ return repo.findById(id); }
-    public void delete(Long id){ repo.deleteById(id); }
-    public List<Book> findByAuthor(String authorPart){ return repo.findByAuthorContainingIgnoreCase(authorPart); }
+    PagedResponse<BookResponseDTO> getAll(String author, String title, String genre, Pageable pageable);
+
+    BookResponseDTO getById(Long id);
+
+    BookResponseDTO update(Long id, BookRequestDTO request);
+
+    BookResponseDTO partialUpdate(Long id, Map<String, Object> updates);
+
+    void delete(Long id);
 }
